@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  30 APR 2025 21:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  30 APR 2025 21:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -543,4 +543,406 @@ LaTeX Font Info:    ... okay on input line 41.
 * modes: 
 * h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
 * v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
-* 
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count341
+\scratchdimen=\dimen199
+\scratchbox=\box70
+\nofMPsegments=\count342
+\nofMParguments=\count343
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count344
+\MPscratchDim=\dimen256
+\MPnumerator=\count345
+\makeMPintoPDFobject=\count346
+\everyMPtoPDFconversion=\toks33
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-d
+ictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `tra
+nslations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `english'. on input line 41.
+Package hyperref Info: Link coloring ON on input line 41.
+ (./Report.out) (./Report.out)
+\@outlinefile=\write3
+\openout3 = `Report.out'.
+
+\c@lstlisting=\count347
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+[1
+
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
+al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local
+/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+(./Report.toc)
+\tf@toc=\write4
+\openout4 = `Report.toc'.
+
+
+
+[2]
+
+./Report.tex:81: LaTeX Error: Unicode character ≤ (U+2264)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 ... attractive when data sets are modest (≤
+                                                   100 k rows) and
+? s
+OK, entering \scrollmode...
+
+
+[3]
+<plots/output.png, id=92, 612.1269pt x 492.8814pt>
+File: plots/output.png Graphic file (type png)
+<use plots/output.png>
+Package pdftex.def Info: plots/output.png  used on input line 144.
+(pdftex.def)             Requested size: 317.07614pt x 255.30705pt.
+
+
+./Report.tex:150: LaTeX Error: Unicode character ≈ (U+2248)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.150 ...me Spent} shows three distinct modes (≈
+                                                  40, 55, 80 min), while
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+<plots/output2.png, id=94, 404.712pt x 338.9463pt>
+File: plots/output2.png Graphic file (type png)
+<use plots/output2.png>
+Package pdftex.def Info: plots/output2.png  used on input line 160.
+(pdftex.def)             Requested size: 226.48395pt x 189.67934pt.
+
+
+[4 <./plots/output.png>]
+
+./Report.tex:166: LaTeX Error: Unicode character ≈ (U+2248)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.166 Females account for ≈
+                             54 % of impressions, males ≈46 %.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+<plots/output3.png, id=103, 406.1574pt x 312.2064pt>
+File: plots/output3.png Graphic file (type png)
+<use plots/output3.png>
+Package pdftex.def Info: plots/output3.png  used on input line 174.
+(pdftex.def)             Requested size: 226.48395pt x 174.09123pt.
+
+./Report.tex:180: LaTeX Error: Unicode character ≈ (U+2248)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 Clickers’ median age (≈
+                                 34 y) is 22 years lower than non-clickers (...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+./Report.tex:180: LaTeX Error: Unicode character ≈ (U+2248)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 ... is 22 years lower than non-clickers (≈
+                                                  56 y),
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+<plots/output4.png, id=104, 412.6617pt x 312.2064pt>
+File: plots/output4.png Graphic file (type png)
+<use plots/output4.png>
+Package pdftex.def Info: plots/output4.png  used on input line 187.
+(pdftex.def)             Requested size: 226.48395pt x 171.35199pt.
+
+
+[5 <./plots/output2.png> <./plots/output3.png>]
+<plots/output8.png, id=116, 412.6617pt x 328.8285pt>
+File: plots/output8.png Graphic file (type png)
+<use plots/output8.png>
+Package pdftex.def Info: plots/output8.png  used on input line 200.
+(pdftex.def)             Requested size: 226.48395pt x 180.4749pt.
+<plots/output5.png, id=117, 1152.7065pt x 1066.7052pt>
+File: plots/output5.png Graphic file (type png)
+<use plots/output5.png>
+Package pdftex.def Info: plots/output5.png  used on input line 214.
+(pdftex.def)             Requested size: 452.9679pt x 419.17102pt.
+
+
+[6 <./plots/output4.png> <./plots/output8.png>]
+<plots/output6.png, id=129, 419.166pt x 328.8285pt>
+File: plots/output6.png Graphic file (type png)
+<use plots/output6.png>
+Package pdftex.def Info: plots/output6.png  used on input line 228.
+(pdftex.def)             Requested size: 226.48395pt x 177.67513pt.
+
+
+[7 <./plots/output5.png>]
+<plots/output7.png, id=138, 508.7808pt x 328.8285pt>
+File: plots/output7.png Graphic file (type png)
+<use plots/output7.png>
+Package pdftex.def Info: plots/output7.png  used on input line 241.
+(pdftex.def)             Requested size: 407.66833pt x 263.48964pt.
+
+
+./Report.tex:247: LaTeX Error: Unicode character ≈ (U+2248)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.247 Six countries generate ≈
+                                80 % of traffic; the tail contains dozens of
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+<plots/output9.png, id=139, 666.3294pt x 606.3453pt>
+File: plots/output9.png Graphic file (type png)
+<use plots/output9.png>
+Package pdftex.def Info: plots/output9.png  used on input line 255.
+(pdftex.def)             Requested size: 317.07614pt x 288.53513pt.
+
+
+[8 <./plots/output6.png> <./plots/output7.png>]
+
+./Report.tex:261: LaTeX Error: Unicode character ρ (U+03C1)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.261 Encoded \textit{City} (ρ
+                                ≈ 0.69) and \textit{Ad Topic Line}
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+./Report.tex:261: LaTeX Error: Unicode character ≈ (U+2248)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.261 Encoded \textit{City} (ρ ≈
+                                    0.69) and \textit{Ad Topic Line}
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+./Report.tex:262: LaTeX Error: Unicode character ρ (U+03C1)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.262 (ρ
+          ≈ 0.64) show the strongest associations with the target, validating
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+./Report.tex:262: LaTeX Error: Unicode character ≈ (U+2248)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.262 (ρ ≈
+              0.64) show the strongest associations with the target, validating
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+./Report.tex:264: LaTeX Error: Unicode character ρ (U+03C1)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.264 (|ρ
+          |<0.2), so multicollinearity is negligible.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+Overfull \hbox (21.51357pt too wide) in paragraph at lines 292--295
+[]\T1/cmr/bx/n/12 Interactions \T1/cmr/m/n/12 ^^U cre-ate $[] \OT1/cmr/m/n/12 =
+ []$ \T1/cmr/m/n/12 plus \T1/cmtt/m/n/12 Engage \TS1/cmtt/m/n/12 � \T1/cmtt/m/n
+/12 isWeekend \TS1/cmtt/m/n/12 � \T1/cmtt/m/n/12 isEvening\T1/cmr/m/n/12 . 
+ []
+
+
+
+[9 <./plots/output9.png>]
+
+./Report.tex:307: LaTeX Error: Unicode character ∈ (U+2208)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.307         Gradient Boosting (learning-rate ∈
+                                                   {0.1, 0.05, 0.02},
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+Overfull \hbox (1.68771pt too wide) in paragraph at lines 305--310
+\T1/cmr/m/n/12 (learning-rate  0.1, 0.05, 0.02, 300^^U600 es-ti-ma-tors, depth 
+3^^U4), XG-Boost (eta 0.3^^U0.05,
+ []
+
+
+./Report.tex:338: LaTeX Error: Unicode character ≤ (U+2264)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.338 ...hic parity and equal-opportunity) are ≤
+                                                   0.03, comfortably below
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+./Report.tex:342: LaTeX Error: Unicode character ≈ (U+2248)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.342 GBDT model ≈
+                     1.9 MiB; median inference latency 4.2 ms on a Raspberry...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+
+[10]
+Overfull \hbox (46.77892pt too wide) in paragraph at lines 369--371
+[][][]$\T1/cmtt/m/n/12 https : / / github . com / Mah-[]En / Click-[]Through-[]
+Rate-[]Prediction-[]in-[]Online-[]Advertising$[][]\T1/cmr/m/n/12 .
+ []
+
+
+
+[11] (./Report.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+Package rerunfilecheck Info: File `Report.out' has not changed.
+(rerunfilecheck)             Checksum: 5FCE8F18A89CAF3E04DEF5CFA5F68BDA;1199.
+ ) 
+Here is how much of TeX's memory you used:
+ 19877 strings out of 473190
+ 372738 string characters out of 5715801
+ 749210 words of memory out of 5000000
+ 42846 multiletter control sequences out of 15000+600000
+ 577572 words of font info for 83 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,8n,80p,306b,1143s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb>
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></
+usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></us
+r/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/
+local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/lo
+cal/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/te
+xlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texl
+ive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texliv
+e/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on Report.pdf (11 pages, 1832520 bytes).
+PDF statistics:
+ 278 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+

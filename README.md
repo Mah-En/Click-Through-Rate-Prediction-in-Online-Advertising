@@ -34,7 +34,7 @@
 
 ```bash
 # clone repository
-git clone https://github.com/<your-user>/CTR_Project1.git
+git clone https://github.com/Mah-En/Click-Through-Rate-Prediction-in-Online-Advertising
 cd CTR_Project1
 
 # create environment

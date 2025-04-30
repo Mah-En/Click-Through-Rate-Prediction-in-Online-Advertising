@@ -1,6 +1,6 @@
 # Click-Through-Rate (CTR) Prediction &nbsp;—&nbsp; Classical Machine-Learning Pipeline
 
-![ROC curve](plots/output4.png)
+![ROC curve](output4.png)
 
 > **Goal:** build and evaluate a lightweight yet accurate model that predicts  
 > the probability a user will click an online advertisement, using only

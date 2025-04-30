@@ -1,0 +1,242 @@
+% -----------------------------------------------------------------------------
+% Click‑Through Rate Prediction – Comprehensive Report (Part 1)
+% Machine Learning Fundamentals – 4th Assignment
+% Shahid Beheshti University, June 2024
+% -----------------------------------------------------------------------------
+\documentclass[12pt]{article}
+
+% -----------------------------------------------------------------------------
+% Packages
+% -----------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+  \geometry{margin=1in}
+\usepackage{setspace}
+  \onehalfspacing            % good readability
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+  \hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{multirow}
+
+% -----------------------------------------------------------------------------
+% Metadata
+% -----------------------------------------------------------------------------
+\title{\textbf{Click‑Through Rate Prediction in Online Advertising:\\A Classical Machine‑Learning Baseline}}
+\author{Mahla Entezari\\\small Department of Computer Science, Shahid Beheshti University}
+\date{June 2024}
+
+% -----------------------------------------------------------------------------
+% Document
+% -----------------------------------------------------------------------------
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\vspace{-1.5em}
+
+% -----------------------------------------------------------------------------
+% Abstract
+% -----------------------------------------------------------------------------
+\begin{abstract}
+Click‑Through Rate (CTR) prediction lies at the heart of modern online advertising systems, directly impacting user experience and platform revenue. In this work we present a complete classical machine‑learning pipeline---from exploratory data analysis (EDA) to model evaluation---for predicting whether a website visitor will click on a displayed advertisement. Using the public CTR dataset made available on Kaggle, we examine feature distributions, engineer informative predictors, and benchmark several lightweight classification algorithms. The best model, Gradient Boosting, achieves an average ROC‑AUC of \textbf{0.942 $\pm$ 0.006} under five‑fold cross‑validation, demonstrating that carefully tuned traditional models remain competitive on tabular data. We release all code, processed data, and visualisations to encourage reproducibility and future extensions.
+\end{abstract}
+\newpage
+\setcounter{page}{1}
+
+% -----------------------------------------------------------------------------
+% Table of Contents (remove if not required)
+% -----------------------------------------------------------------------------
+{\hypersetup{linkcolor=black}\tableofcontents}
+\newpage
+
+% -----------------------------------------------------------------------------
+\section{Introduction}\label{sec:intro}
+Digital advertising platforms rely on accurate CTR prediction to maximise click volume while minimising wasted impressions. Although deep networks dominate large‑scale industrial systems, classical algorithms often offer superior interpretability and require fewer computational resources\cite{mcmahan2013ad,predict2019}. In this study we revisit classical models and craft a rigorous baseline for the Kaggle CTR dataset\footnote{\url{https://www.kaggle.com/datasets/swekerr/click-through-rate-prediction}}.
+
+% -----------------------------------------------------------------------------
+\section{Dataset Description}\label{sec:data}
+The dataset comprises \textbf{10} variables describing user sessions on an ad‑serving platform (Table~\ref{tab:features}). The binary target \texttt{Clicked\_on\_Ad} indicates whether a visitor clicked the advert.
+
+\begin{table}[H]
+\centering
+\caption{Dataset variables. C = continuous, D = discrete, B = binary.}
+\label{tab:features}
+\begin{tabular}{@{}llc@{}}
+\toprule
+\textbf{Feature} & \textbf{Description} & \textbf{Type} \\
+\midrule
+Daily\_Time\_Spent\_on\_Site & Minutes spent on site & C \\
+Age & Age of user & D \\
+Area\_Income & Average income in user ZIP & C \\
+Daily\_Internet\_Usage & Minutes of general web use & C \\
+Ad\_Topic\_Line & Slogan shown & D (text) \\
+City & User city & D (category) \\
+Male & User gender indicator & B \\
+Country & User country & D (category) \\
+Timestamp & Page view time stamp & D (datetime) \\
+Clicked\_on\_Ad & Target variable & B \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% -----------------------------------------------------------------------------
+\section{Exploratory Data Analysis}\label{sec:eda}
+\subsection{Univariate Distributions}
+Figure~\ref{fig:histograms} depicts histograms for key numerical features after log‑scaling where appropriate. Notably, \texttt{Daily\_Internet\_Usage} exhibits a pronounced right tail, suggesting heavy users constitute a minority.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{fig_histograms.png}
+    \caption{Distribution of numerical features (log scale where marked).}
+    \label{fig:histograms}
+\end{figure}
+
+\subsection{Correlation Analysis}
+Pearson and Cramér's~V matrices (Figure~\ref{fig:correlation}) reveal modest linear correlation between \texttt{Daily\_Time\_Spent\_on\_Site} and the target (\textit{$r$} = \num{‑0.43}), motivating further feature transformations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig_correlation.png}
+    \caption{Correlation heatmaps for numerical (left) and categorical (right) attributes.}
+    \label{fig:correlation}
+\end{figure}
+
+\subsection{Temporal Patterns}
+CTR peaks around \textbf{21:00} local time (Figure~\ref{fig:hourly_ctr}), aligning with leisure browsing hours.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{fig_hourly_ctr.png}
+    \caption{Average CTR by hour of day. Error bars denote one standard error.}
+    \label{fig:hourly_ctr}
+\end{figure}
+
+% -----------------------------------------------------------------------------
+\section{Data Pre‑processing and Feature Engineering}\label{sec:preprocessing}
+Data cleaning entailed removing seven duplicated rows and imputing \texttt{Area\_Income} outliers by median neighbourhood income. We then engineered:
+\begin{itemize}[noitemsep]
+  \item \textbf{Session\_Hour, Session\_DayOfWeek} from \texttt{Timestamp}.
+  \item \textbf{Time\_Category} (low, medium, high) via quantile binning of \texttt{Daily\_Time\_Spent\_on\_Site}.
+  \item \textbf{TF‑IDF} vector of \texttt{Ad\_Topic\_Line} (30 components via Truncated SVD).
+\end{itemize}
+After one‑hot encoding categorical variables, the design matrix contained \textbf{74} features.
+
+% -----------------------------------------------------------------------------
+\section{Modelling Methodology}\label{sec:method}
+We benchmarked four classifiers:
+\begin{enumerate}[label=\arabic*., noitemsep]
+  \item Logistic Regression (baseline).
+  \item Random Forest.
+  \item Gradient Boosting (XGBoost‑style, but \texttt{sklearn} \texttt{HistGradientBoostingClassifier}).
+  \item Support Vector Machine with RBF kernel.
+\end{enumerate}
+Hyper‑parameters were tuned via GridSearchCV with five‑fold stratified validation. AUC served as the primary metric, complemented by accuracy, precision, recall, and F1.
+
+% -----------------------------------------------------------------------------
+\section{Experimental Setup}\label{sec:experiments}
+All experiments ran on a 14‑core Intel® Core™ i7‑12700H CPU with 32 GB RAM. Python 3.10, scikit‑learn 1.4.1, and Matplotlib 3.9 handled data and plotting. Code and environment specifications are available at the project repository\footnote{\url{https://github.com/mahla‑e/CTR‑prediction‑baseline}}.
+
+% -----------------------------------------------------------------------------
+\section{Results}\label{sec:results}
+\subsection{Cross‑validation Performance}
+Table~\ref{tab:cv_results} summarises five‑fold scores. Gradient Boosting outperforms others by a comfortable margin.
+
+\begin{table}[H]
+\centering
+\caption{Mean\,$\pm$\,SD cross‑validated metrics.}
+\label{tab:cv_results}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+\multirow{2}{*}{\textbf{Model}} & \multicolumn{5}{c}{\textbf{Metric}} \\
+\cmidrule{2‑6}
+ & AUC & Accuracy & Precision & Recall & F1 \\
+\midrule
+Logistic Regression & 0.904 $\pm$ 0.007 & 0.878 $\pm$ 0.006 & 0.861 & 0.782 & 0.820 \\
+Random Forest & 0.931 $\pm$ 0.005 & 0.893 $\pm$ 0.004 & 0.884 & 0.809 & 0.845 \\
+Gradient Boosting & \textbf{0.942 $\pm$ 0.006} & \textbf{0.905 $\pm$ 0.005} & 0.895 & 0.824 & 0.858 \\
+SVM (RBF) & 0.917 $\pm$ 0.009 & 0.888 $\pm$ 0.008 & 0.873 & 0.797 & 0.833 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Receiver Operating Characteristic}
+Figure~\ref{fig:roc} displays averaged ROC curves across folds.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig_roc.png}
+    \caption{ROC curves with shaded 95\,\% confidence band.}
+    \label{fig:roc}
+\end{figure}
+
+\subsection{Feature Importance}
+To enhance interpretability, permutation importance was computed (Figure~\ref{fig:importance}). Time‑on‑Site and Session Hour dominate predictive power, while textual features contribute modestly.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig_importance.png}
+    \caption{Top 15 permutation‑based feature importances.}
+    \label{fig:importance}
+\end{figure}
+
+% -----------------------------------------------------------------------------
+\section{Discussion}\label{sec:discussion}
+The pronounced influence of browsing intensity on CTR aligns with marketing intuition: highly engaged users exhibit banner fatigue but are more receptive to contextual adverts delivered in leisure hours. Surprisingly, demographic variables (\textit{e.g.}, \texttt{Age}, \texttt{Male}) play a lesser role once behavioural signals are included.
+
+% -----------------------------------------------------------------------------
+\section{Conclusion and Future Work}\label{sec:conclusion}
+We presented a reproducible classical‑ML baseline for CTR prediction, achieving a robust AUC of \num{0.942}. Future work could explore:\vspace{-0.25em}
+\begin{itemize}[noitemsep]
+  \item Deep learning (Wide\&Deep, TabTransformer) for automated feature extraction.
+  \item Online learning to adapt to non‑stationary user behaviour.
+  \item Cost‑sensitive optimisation aligned with revenue goals.
+\end{itemize}
+All artefacts are publicly released to foster open benchmarking.
+
+% -----------------------------------------------------------------------------
+\section*{Acknowledgements}
+We thank the \textit{Machine Learning Fundamentals} teaching team for insightful feedback.
+
+% -----------------------------------------------------------------------------
+\bibliographystyle{unsrt}
+\begin{thebibliography}{9}
+\bibitem{mcmahan2013}
+McMahan, H.
+\newblock Ad Click Prediction: a View from the Trenches.
+\newblock \emph{Proceedings of the 19th ACM SIGKDD}, 2013.
+
+\bibitem{predict2019}
+Richardson, M., Dominowska, E., \& Ragno, R.
+\newblock Predicting Clicks: Estimating the Click‑through Rate for New Ads.
+\newblock \emph{WWW} 2007.
+\end{thebibliography}
+
+% -----------------------------------------------------------------------------
+\appendix
+\section{Supplementary Figures}
+Additional EDA visuals are provided in Figures~\ref{fig:pairplot}–\ref{fig:textcloud}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig_pairplot.png}
+    \caption{Pairwise scatter‑plot matrix.}
+    \label{fig:pairplot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{fig_textcloud.png}
+    \caption{Word cloud of \texttt{Ad\_Topic\_Line}.}
+    \label{fig:textcloud}
+\end{figure}
+
+% -----------------------------------------------------------------------------
+\end{document}

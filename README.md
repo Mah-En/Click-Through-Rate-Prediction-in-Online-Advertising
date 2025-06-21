@@ -8,7 +8,7 @@
 
 ---
 
-## 🗂 Project Structure
+## Project Structure
 
 ```
 .
@@ -49,7 +49,7 @@ Main dependencies ≈ scikit-learn 1.5, pandas 2, matplotlib 3.9, xgboost 2.
 
 ---
 
-## ▶️ Quick Start
+## Quick Start
 
 ```bash
 # 1. run end-to-end pipeline (train, evaluate, export model.pkl)
@@ -66,7 +66,7 @@ After `make all` you’ll find:
 
 ---
 
-## 🔑 Key Findings
+## Key Findings
 
 | Model                | AUC-ROC | Log-Loss | Brier | Cost (\$) |
 |----------------------|:-------:|:--------:|:-----:|:---------:|
@@ -92,7 +92,7 @@ After `make all` you’ll find:
 
 ---
 
-## 📝 Reproducing the Report
+## Reproducing the Report
 
 1. Ensure `pdflatex` is in your path (TeX Live 2025 or MiKTeX).  
 2. Run `make report` **or**
@@ -106,7 +106,7 @@ No BibTeX required; references are hard-coded.
 
 ---
 
-## ✅ Next Steps
+## Next Steps
 
 * **Cost-sensitive training** (loss weights during tree growth)  
 * **LightGBM** for ≥ 1 M impressions  
@@ -115,7 +115,7 @@ No BibTeX required; references are hard-coded.
 
 ---
 
-## 📚 References
+## References
 
 1. Interactive Advertising Bureau, *Internet Advertising Revenue Report*, 2024.  
 2. Richardson et al., “Predicting CTR for New Ads,” WWW 2007.  
